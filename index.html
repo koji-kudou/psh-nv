@@ -1,1 +1,270 @@
-"hello github.io!!" 
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- MDL -->
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <script src="./mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+    <!-- Plugin JS -->
+    <script type="text/javascript" src="./plugin/jquery/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./plugin/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./plugin/jquery-pjax-master/jquery.pjax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+
+    <!-- User JS -->
+
+    <!-- User Element -->
+    <script src="./bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="./elements/animation-fade.html">
+<!--
+    <link rel="import" href="./elements/animation-fadeout.html">
+-->
+    <script type="text/javascript">
+    $(document).ready(function () {
+      Push.Permission.request();
+      /*
+      Push.Permission.GRANTED;
+      $get = Push.Permission.get();
+      alert('get=' + $get);
+      $has = Push.Permission.has();
+      alert('has=' + $has);
+       */
+
+      Push.Permission.request();
+      $('#push_notification').click(function () {
+        $cnt = Push.count(); // 呼び出し回数
+        Push.create('更新をお知らせします。', {
+            tag: $cnt,  // ユニークタグに呼び出し回数を指定
+            body: 'Push.js が動作中です。対応ブラウザはiOSを除くChrome 42以上/Firefox 44以上です。',
+            icon: '../images/uts.jpg',
+//            link: 'https://www.uts-corp.co.jp',
+            timeout: 10000, // 通知が消えるタイミング
+            vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
+            onClick: function() {
+                // 通知がクリックされた場合の設定
+//                console.log(this);
+                window.open( 'https://www.facebook.com/pages/%E3%83%A6%E3%83%8B%E3%83%86%E3%83%83%E3%82%AF%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/594659803973558', "_blank" );
+                this.close($cnt); // ユニークタグを指定して閉じる
+            },
+            onError: function() {
+                // 通知がクリックされた場合の設定
+//                console.log(this);
+                alert('エラーが発生しました。');
+            }
+        });
+      });
+    });
+    jQuery.event.add(window, "unload", function () {
+    });
+    jQuery.event.add(window, "load", function() {
+    });
+    jQuery.event.add(window, "resize", function () {
+    });
+    /*
+     * ローカル関数
+     * @returns {undefined}
+     */
+    var _local= function() {
+    };
+
+    </script>
+
+    <!-- Wide card with share menu button -->
+    <style type="text/css">
+      animation-fade {
+        opacity: 0;
+      }
+      .mdl-layout {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break : break-all;
+        font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif !important;
+      }
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',  Meiryo, 'メイリオ', sans-serif !important;
+      }
+      .mdl-layout__header {
+        background-color: #374d7b;
+      }
+      .mdl-layout-title {
+        font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif !important;
+        padding-left: 6%;
+        font-size: 18px;
+      }
+      .date-content {
+        text-align: center;
+        color: white;
+        background-color: #55b5ff;
+        padding: 20px 0 40px 0;
+      }
+      .date-content .subject {
+        font-size: 16px;
+      }
+      .date-content .title {
+        font-size: 32px;
+        padding: 0 20px;
+      }
+      .date-content .arrow-nav {
+        padding: 10px 0px;
+      }
+      .mdl-card__title-text {
+        font-size: 18px;
+      }
+      .mdl-card {
+        width: 100%;
+        min-height: 100px;
+      }
+      @media (max-width: 480px) {
+        .mdl-layout-title {
+          font-size: 14px;
+        }
+        .date-content .subject {
+          font-size: 12px;
+        }
+        .date-content .title {
+          font-size: 28px;
+        }
+        .mdl-card__title-text {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Title -->
+          <span class="mdl-layout-title">現場スタッフ勤怠編集</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation">
+            <!-- Right aligned menu below button -->
+            <button class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">information</i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">home</i>
+            </button>
+            <!-- Right aligned menu below button -->
+            <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">more_vert</i>
+            </button>
+          </nav>
+        </div>
+
+      </header>
+
+      <!-- Right Menu -->
+      <nav class="mdl-navigation" style="z-index: 9000;">
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+          <li class="mdl-menu__item">Some Action</li>
+          <li class="mdl-menu__item">Another Action</li>
+          <li disabled class="mdl-menu__item">Disabled Action</li>
+          <li class="mdl-menu__item">Yet Another Action</li>
+        </ul>
+      </nav>
+      <!-- Left Menu -->
+      <div class="mdl-layout__drawer" style="z-index: 9000;">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="index.html">現場スタッフ勤怠編集</a>
+          <a class="mdl-navigation__link" href="list.html">求人情報一覧</a>
+          <a class="mdl-navigation__link" href="slidein.html">求人情報照会</a>
+        </nav>
+      </div>
+
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <!-- Your content goes here -->
+
+          <!-- 日付等 -->
+          <div class="date-content">
+            <span id="subject" class="subject">2014/06/09(月)</span>
+            <nav class="mdl-navigation arrow-nav">
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Right aligned menu below button -->
+              <animation-fadeout style="visibility: hidden;">
+                <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">arrow_back</i></button>
+              </animation-fadeout>
+              <animation-fade duration=400 before="0px" class="mdl-layout__title title">10:00～11:00</animation-fade>
+              <animation-fadeout selector=".date-content animation-fade, .mdl-grid animation-fade" direction='left' after='80px' href="index2.html">
+                <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">arrow_forward</i></button>
+              </animation-fadeout>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+            </nav>
+          </div>
+          
+          <!-- カード -->
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <animation-fade duration=400 after="-40px" class="mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                  <h3 class="mdl-card__title-text">勤務場所</h3>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <span>後楽園・LaQua</span>
+                </div>
+              </animation-fade>
+            </div>
+            
+            <div class="mdl-cell mdl-cell--6-col">
+              <animation-fade duration=500 after="-40px" class="mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                  <h3 class="mdl-card__title-text">勤務場所</h3>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <span>後楽園・LaQua</span>
+                </div>
+              </animation-fade>
+            </div>
+            
+            <div class="mdl-cell mdl-cell--6-col">
+              <animation-fade duration=600 after="-40px" class="mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                  <h3 class="mdl-card__title-text">備考</h3>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <span>10人</span>
+                </div>
+              </animation-fade>
+            </div>
+          </div>
+          
+<!--          <animation-fadeout selector="[class=mdl-layout__content]" after='0px' href="list.html">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored material-icons mdl-color--cyan">
+              <i class="material-icons">list</i>
+            </button>
+          </animation-fadeout>
+-->
+          
+          <button id="push_notification" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored material-icons mdl-color--cyan">
+            <i class="material-icons">priority_high</i>
+          </button>
+          
+        </div>
+      </main>
+
+      
+    </div>
+  </body>
+</html>
