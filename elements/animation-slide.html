@@ -1,0 +1,70 @@
+<!-- Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="animation-slide">
+  <template>
+    <style>
+    </style>
+    <content></content>
+  </template>
+  <script>
+    /**
+     * Polymer
+     */
+    Polymer({
+      is: "animation-slide",
+      properties: {
+        before: {
+          type: String,
+          value: '200px'
+        },
+        after: {
+          type: String,
+          value: '0px'
+        },
+        duration: {
+          type: Number,
+          value: 1000
+        }
+      },
+      listeners : {
+        'tap' : '_tap'
+      },
+      /**
+       * ユーザー定義
+       * @returns {undefined}
+       */
+      _tap : function() {
+      },
+      /**
+       * Event
+       * @returns {undefined}
+       */
+      ready: function () {
+        this._slideIn();
+      },
+      _slideIn: function(callback){
+        var before = this.before || null;
+        var after = this.after || null;
+        var duration = this.duration || null;
+        callback = callback || null;
+        $(this)
+          .css(
+            {
+              position: "relative",
+              left: before,
+              opacity: "0.0"
+            }
+          )
+          .animate(
+            {
+              left: after,
+              opacity: "1"
+            },
+            duration,
+            callback
+          );
+      }
+    });
+  </script>
+
+</dom-module>

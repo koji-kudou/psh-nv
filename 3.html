@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- MDL -->
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <script src="./mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+    <!-- Plugin JS -->
+    <script type="text/javascript" src="./plugin/jquery/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="./plugin/jquery/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- User JS -->
+
+    <!-- User Element -->
+    <script src="./bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="./elements/animation-fade.html">
+    <link rel="import" href="./elements/animation-fadeout.html">
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+    });
+    jQuery.event.add(window, "unload", function () {
+    });
+    jQuery.event.add(window, "load", function() {
+    });
+    jQuery.event.add(window, "resize", function () {
+    });
+    /*
+     * ローカル関数
+     * @returns {undefined}
+     */
+    var _local= function() {
+    };
+
+    </script>
+
+    <!-- Wide card with share menu button -->
+    <style type="text/css">
+      .barba-container {
+      }
+      a {
+        font-family: 'Source Sans Pro', serif;
+        display: block;
+        position: fixed;
+        text-decoration: none;
+        top: 25vh;
+        background: #555;
+        color: #fff;
+        padding: 10px;
+        z-index: 99;
+      }
+      a.next {
+        right: 0;
+      }
+      a.prev {
+        left: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Always shows a header, even in smaller screens. -->
+    <main id="barba-wrapper">
+      <div class="barba-container" data-prev="2.html" data-next="1.html">
+        <div style="background-color: green;">
+          <header>
+            <h1>The sky.</h1>
+          </header>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad non minus porro. Rerum magnam ab, esse sunt nisi a praesentium pariatur quia unde architecto eveniet ipsum molestiae maxime sit, assumenda.</p>
+          <p>Labore maiores ratione enim tenetur sequi, esse. Expedita necessitatibus et distinctio quas eum, magni dolorem similique, quod aut, ratione optio! Laudantium similique deleniti beatae facere reiciendis laboriosam nulla fugit illum.</p>
+          <p>Atque iusto, sequi necessitatibus accusantium ipsum obcaecati. Deserunt, repudiandae, magnam fugit distinctio enim fuga excepturi incidunt eligendi nam officia accusantium id nemo omnis suscipit officiis doloremque, laboriosam tempora quas ullam.</p>
+          <p>Quibusdam officia fugit modi repudiandae recusandae mollitia at aperiam. Quod sed, eos nam laudantium, debitis eligendi hic dolore tempore vitae sequi, natus consectetur numquam adipisci! Corporis nihil autem neque quisquam.</p>
+          <p>Repellat non repudiandae illum possimus, amet cum blanditiis dolorem harum odit quibusdam accusantium nisi tempore, eos ratione soluta rerum aspernatur eligendi provident quas sunt. Quis odit dolores earum ullam perspiciatis!</p>
+          <p>Quod voluptatem veniam, optio at praesentium, saepe incidunt quia? Culpa optio perspiciatis, odit quibusdam voluptatem esse ipsam doloremque rerum hic quas, ducimus, ab nobis quia ad unde vitae error accusamus?</p>
+          <p>Impedit odit deserunt quos, vero delectus. Enim asperiores voluptatum, modi beatae! Beatae provident, minima quo dolore officiis fugiat corrupti excepturi nobis suscipit ullam nesciunt, voluptatem aliquid iure repellat atque repellendus!</p>
+          <p>Optio voluptate, provident tenetur aut molestias quod itaque id facilis illum dignissimos, sequi quaerat! Vel cumque, labore iste quam velit veniam reiciendis id, alias, maxime illum necessitatibus dolore aliquid rem.</p>
+          <p>Dolores illum similique recusandae, facilis eligendi tempore illo, necessitatibus eius ipsa magnam quae, excepturi veniam laboriosam reiciendis culpa est amet, quis? Expedita sequi, exercitationem possimus molestiae at sunt quisquam commodi.</p>
+          <p>Corporis fuga, perspiciatis iste aspernatur debitis possimus odit sint aut, ratione officia sed id pariatur voluptatem dolores atque asperiores doloribus praesentium labore laudantium veritatis. Totam, recusandae mollitia dignissimos cupiditate! Voluptas!</p>
+        </div>
+      </div>
+
+      <a class="next" href="1.html">NEXT</a>
+      <a class="prev" href="2.html">PREV</a>
+    </main>
+
+    <script type="text/javascript" src="./plugin/barba.js-master/dist/barba.min.js"></script>
+    <script type="text/javascript" src="./js/nextprev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!-- Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="animation-fadeout">
+  <template>
+    <!-- このブロック内では読み込み元から参照不可 -->
+    <script type="text/javascript" src="../js/master.js" charset="UTF-8"></script>
+    <style>
+    </style>
+    <content></content>
+  </template>
+  <script>
+    /**
+     * Polymer
+     */
+    Polymer({
+      is: "animation-fadeout",
+      properties: {
+        selector: {
+          type: String,
+          value: ''
+        },
+        direction: {
+          type: String,
+          value: 'top'
+        },
+        after: {
+          type: String,
+          value: '0px'
+        },
+        duration: {
+          type: Number,
+          value: 300
+        },
+        href: {
+          type: String,
+          value: ''
+        }
+      },
+      listeners : {
+        'tap' : '_tap'
+      },
+      /**
+       * ライフサイクルコールバック
+       */
+      created: function () {
+        console.log(this.localName + ' was created');
+      },
+      ready: function () {
+        console.log(this.localName + ' was ready');
+      },
+      attached: function () {
+        console.log(this.localName + ' was attached');
+      },
+      detached: function () {
+        console.log(this.localName + ' was detached');
+      },
+      attributeChanged: function (name, type) {
+        console.log(this.localName + ' attribute ' + name +
+          ' was changed to ' + this.getAttribute(name));
+      },
+      /**
+       * ユーザー定義
+       * @returns {undefined}
+       */
+      _tap : function() {
+        if(this.selector){
+          var href = this.href;
+          this._fadeOut(function(){
+            if(href){
+              window.location.href = href;
+            }
+          });
+        }
+      },
+      _fadeOut: function(callback){
+        var direction = this.direction;
+        var after = this.after || null;
+        var duration = this.duration || null;
+        callback = callback || null;
+        switch(direction){
+          case 'top':   $(this.selector).animate({top: after,opacity: "0"},   duration, callback); break;
+          case 'right': $(this.selector).animate({left: after,opacity: "0"},  duration, callback); break;
+          case 'bottom':$(this.selector).animate({bottom: after,opacity: "0"},duration, callback); break;
+          case 'left':  $(this.selector).animate({right: after,opacity: "0"}, duration, callback); break;
+        }
+      }
+    });
+  </script>
+
+</dom-module>

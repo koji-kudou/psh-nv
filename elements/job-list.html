@@ -1,0 +1,44 @@
+<!-- Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="job-list">
+  <template>
+    <!-- テンプレートリピーターを使用する -->
+    <template is="dom-repeat" items="{{jobs}}">
+      <div>
+        <!-- 現在の配列アイテムのインデックス(index)を表示 -->
+        <span># <span>{{index}}</span>. </span>
+        <!-- 現在の配列アイテム(item)の内容を表示 -->
+        <span>{{item.first}}</span> <span>{{item.last}}</span>
+      </div>
+      <style>
+      </style>
+      <content></content>
+    </template>
+  </template>
+  <script>
+    /**
+     * Polymer
+     */
+    Polymer({
+      is: "job-list",
+      /**
+       * ユーザー定義
+       * @returns {undefined}
+       */
+      _tap : function() {
+      },
+      /**
+       * Event
+       * @returns {undefined}
+       */
+      ready: function () {
+        this.jobs = [
+          {first: 'Bob', last: 'Smith'},
+          {first: 'Sally', last: 'Johnson'},
+          {first: 'Michael', last: 'Jackson'}
+        ];
+      }
+    });
+  </script>
+
+</dom-module>

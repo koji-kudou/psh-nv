@@ -1,0 +1,82 @@
+<!-- Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="animation-fade">
+  <template>
+    <style>
+    </style>
+    <content></content>
+  </template>
+  <script>
+    /**
+     * Polymer
+     */
+    Polymer({
+      is: "animation-fade",
+      properties: {
+        before: {
+          type: String,
+          value: '40px'
+        },
+        after: {
+          type: String,
+          value: '0px'
+        },
+        duration: {
+          type: Number,
+          value: 400
+        }
+      },
+      listeners : {
+        'tap' : '_tap'
+      },
+      /**
+       * ユーザー定義
+       * @returns {undefined}
+       */
+      _tap : function() {
+      },
+      /**
+       * Event
+       * @returns {undefined}
+       */
+      ready: function () {
+        this._fadeIn();
+      },
+      _fadeIn: function(callback){
+        var before = this.before || null;
+        var after = this.after || null;
+        var duration = this.duration || null;
+        callback = callback || null;
+        $(this)
+          .css(
+            {
+              position: "relative",
+              top: before,
+              opacity: "0.0"
+            }
+          )
+          .animate(
+            {
+              top: after,
+              opacity: "1"
+            },
+            duration,
+            callback
+          );
+      },
+      _fadeOut: function(callback){
+        var direction = this.direction;
+        var after = this.after || null;
+        var duration = this.duration || null;
+        callback = callback || null;
+        switch(direction){
+          case 'top':   $(this.selector).animate({top: after,opacity: "0"},   duration, callback); break;
+          case 'right': $(this.selector).animate({left: after,opacity: "0"},  duration, callback); break;
+          case 'bottom':$(this.selector).animate({bottom: after,opacity: "0"},duration, callback); break;
+          case 'left':  $(this.selector).animate({right: after,opacity: "0"}, duration, callback); break;
+        }
+      }
+    });
+  </script>
+
+</dom-module>
